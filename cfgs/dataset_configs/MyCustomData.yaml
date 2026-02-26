@@ -1,0 +1,5 @@
+# cfgs/dataset_configs/MyCustomData.yaml
+NAME: MyCustomDataset
+# These paths will be used by your Dataset class
+TRAIN_DATA_PATH: ./data/MyDataset/data_set_normalized.h5
+VAL_DATA_PATH: ./data/MyDataset/test_dataset_normalized.h5
