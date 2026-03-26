@@ -63,7 +63,7 @@ def test(base_model, test_dataloader, args, config, logger = None):
             a, b = 30, 45 
 
             # Forward pass: dense_points is the full recon, vis_points is the masked input
-            dense_points, vis_points, centers = base_model(points, vis=True)
+            dense_points, vis_points, centers, gt_serialized = base_model(points, vis=True)
             
             final_image = []
             data_path = os.path.join('./vis', f'{taxonomy_ids[0]}_{idx}')
@@ -88,6 +88,9 @@ def test(base_model, test_dataloader, args, config, logger = None):
             np.savetxt(os.path.join(data_path, 'dense_points.txt'), dense_points_np, delimiter=';')
             recon_img = misc.get_ptcloud_img(dense_points_np, a, b)
             final_image.append(recon_img[150:650, 150:675, :])
+
+            gt_serialized = gt_serialized.squeeze().detach().cpu().numpy()
+            np.savetxt(os.path.join(data_path, 'gt_serialized.txt'), gt_serialized, delimiter=';')
 
             # Concatenate images side-by-side: [GT | Masked | Reconstruction]
             img = np.concatenate(final_image, axis=1)

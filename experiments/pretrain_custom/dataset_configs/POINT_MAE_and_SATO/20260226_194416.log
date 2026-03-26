@@ -1,0 +1,361 @@
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - Copy the Config file from cfgs/dataset_configs/pretrain_custom.yaml to ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\config.yaml
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.config : cfgs/dataset_configs/pretrain_custom.yaml
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.launcher : none
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.local_rank : 0
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.num_workers : 8
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.seed : 0
+2026-02-26 19:44:16,944 - pretrain_custom - INFO - args.deterministic : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.sync_bn : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.exp_name : POINT_MAE_and_SATO
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.loss : cd1
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.start_ckpts : None
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.ckpts : None
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.val_freq : 1
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.vote : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.resume : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.test : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.finetune_model : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.scratch_model : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.mode : None
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.way : -1
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.shot : -1
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.fold : -1
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.experiment_path : ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.tfboard_path : ./experiments\pretrain_custom\dataset_configs\TFBoard\POINT_MAE_and_SATO
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.log_name : pretrain_custom
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.use_gpu : True
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - args.distributed : False
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - config.optimizer = edict()
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - config.optimizer.type : AdamW
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - config.optimizer.kwargs = edict()
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - config.optimizer.kwargs.lr : 0.001
+2026-02-26 19:44:16,946 - pretrain_custom - INFO - config.optimizer.kwargs.weight_decay : 0.05
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.scheduler = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.scheduler.type : Cosine
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.scheduler.kwargs = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.scheduler.kwargs.epochs : 20
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.scheduler.kwargs.initial_epochs : 10
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train._base_ = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train._base_.NAME : MyCustomDataset
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train._base_.TRAIN_DATA_PATH : ./data/MyDataset/data_set_normalized.h5
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train._base_.VAL_DATA_PATH : ./data/MyDataset/test_dataset_normalized.h5
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train.others = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train.others.subset : train
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train.others.npoints : 300
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.train.others.bs : 128
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val._base_ = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val._base_.NAME : MyCustomDataset
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val._base_.TRAIN_DATA_PATH : ./data/MyDataset/data_set_normalized.h5
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val._base_.VAL_DATA_PATH : ./data/MyDataset/test_dataset_normalized.h5
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val.others = edict()
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val.others.subset : val
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val.others.npoints : 300
+2026-02-26 19:44:16,947 - pretrain_custom - INFO - config.dataset.val.others.bs : 256
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test = edict()
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test._base_ = edict()
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test._base_.NAME : MyCustomDataset
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test._base_.TRAIN_DATA_PATH : ./data/MyDataset/data_set_normalized.h5
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test._base_.VAL_DATA_PATH : ./data/MyDataset/test_dataset_normalized.h5
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test.others = edict()
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test.others.subset : test
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test.others.npoints : 300
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.dataset.test.others.bs : 128
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model = edict()
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.NAME : Point_MAE
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.group_size : 10
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.num_group : 32
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.loss : mse
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config = edict()
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.mask_ratio : 0.6
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.mask_type : rand
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.trans_dim : 384
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.encoder_dims : 384
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.depth : 12
+2026-02-26 19:44:16,948 - pretrain_custom - INFO - config.model.transformer_config.drop_path_rate : 0.1
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.model.transformer_config.num_heads : 6
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.model.transformer_config.decoder_depth : 4
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.model.transformer_config.decoder_num_heads : 6
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.total_bs : 128
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.step_per_update : 1
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - config.max_epoch : 300
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - Distributed training: False
+2026-02-26 19:44:16,949 - pretrain_custom - INFO - Set random seed to 0, deterministic: False
+2026-02-26 19:44:17,212 - pretrain_custom - INFO - Using Data parallel ...
+2026-02-26 19:44:57,227 - pretrain_custom - INFO - [Epoch 0/300][Batch 1/125] BatchTime = 40.012 (s) DataTime = 36.228 (s) Losses = ['277.8201'] lr = 0.000001
+2026-02-26 19:45:08,212 - pretrain_custom - INFO - [Epoch 0/300][Batch 21/125] BatchTime = 0.548 (s) DataTime = 0.000 (s) Losses = ['79.7318'] lr = 0.000001
+2026-02-26 19:45:19,227 - pretrain_custom - INFO - [Epoch 0/300][Batch 41/125] BatchTime = 0.552 (s) DataTime = 0.001 (s) Losses = ['62.6585'] lr = 0.000001
+2026-02-26 19:45:30,295 - pretrain_custom - INFO - [Epoch 0/300][Batch 61/125] BatchTime = 0.554 (s) DataTime = 0.000 (s) Losses = ['45.3249'] lr = 0.000001
+2026-02-26 19:45:41,502 - pretrain_custom - INFO - [Epoch 0/300][Batch 81/125] BatchTime = 0.557 (s) DataTime = 0.000 (s) Losses = ['43.6229'] lr = 0.000001
+2026-02-26 19:45:52,798 - pretrain_custom - INFO - [Epoch 0/300][Batch 101/125] BatchTime = 0.560 (s) DataTime = 0.000 (s) Losses = ['37.6250'] lr = 0.000001
+2026-02-26 19:46:04,166 - pretrain_custom - INFO - [Epoch 0/300][Batch 121/125] BatchTime = 0.565 (s) DataTime = 0.001 (s) Losses = ['35.7795'] lr = 0.000001
+2026-02-26 19:46:07,568 - pretrain_custom - INFO - [Training] EPOCH: 0 EpochTime = 110.353 (s) Losses = ['64.2363'] lr = 0.000001
+2026-02-26 19:46:07,930 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:46:51,220 - pretrain_custom - INFO - [Epoch 1/300][Batch 1/125] BatchTime = 43.289 (s) DataTime = 42.426 (s) Losses = ['33.2155'] lr = 0.000001
+2026-02-26 19:47:02,407 - pretrain_custom - INFO - [Epoch 1/300][Batch 21/125] BatchTime = 0.557 (s) DataTime = 0.002 (s) Losses = ['30.7041'] lr = 0.000001
+2026-02-26 19:47:13,699 - pretrain_custom - INFO - [Epoch 1/300][Batch 41/125] BatchTime = 0.560 (s) DataTime = 0.002 (s) Losses = ['29.3423'] lr = 0.000001
+2026-02-26 19:47:25,050 - pretrain_custom - INFO - [Epoch 1/300][Batch 61/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['25.3174'] lr = 0.000001
+2026-02-26 19:47:36,563 - pretrain_custom - INFO - [Epoch 1/300][Batch 81/125] BatchTime = 0.589 (s) DataTime = 0.000 (s) Losses = ['24.9241'] lr = 0.000001
+2026-02-26 19:47:47,928 - pretrain_custom - INFO - [Epoch 1/300][Batch 101/125] BatchTime = 0.567 (s) DataTime = 0.002 (s) Losses = ['28.1614'] lr = 0.000001
+2026-02-26 19:47:59,241 - pretrain_custom - INFO - [Epoch 1/300][Batch 121/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['23.2781'] lr = 0.000001
+2026-02-26 19:48:02,598 - pretrain_custom - INFO - [Training] EPOCH: 1 EpochTime = 114.667 (s) Losses = ['27.0543'] lr = 0.000101
+2026-02-26 19:48:03,157 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:48:44,611 - pretrain_custom - INFO - [Epoch 2/300][Batch 1/125] BatchTime = 41.452 (s) DataTime = 40.722 (s) Losses = ['20.9244'] lr = 0.000101
+2026-02-26 19:48:55,817 - pretrain_custom - INFO - [Epoch 2/300][Batch 21/125] BatchTime = 0.555 (s) DataTime = 0.001 (s) Losses = ['11.3793'] lr = 0.000101
+2026-02-26 19:49:07,047 - pretrain_custom - INFO - [Epoch 2/300][Batch 41/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['9.6317'] lr = 0.000101
+2026-02-26 19:49:18,322 - pretrain_custom - INFO - [Epoch 2/300][Batch 61/125] BatchTime = 0.563 (s) DataTime = 0.001 (s) Losses = ['8.9325'] lr = 0.000101
+2026-02-26 19:49:29,586 - pretrain_custom - INFO - [Epoch 2/300][Batch 81/125] BatchTime = 0.560 (s) DataTime = 0.000 (s) Losses = ['8.8706'] lr = 0.000101
+2026-02-26 19:49:40,940 - pretrain_custom - INFO - [Epoch 2/300][Batch 101/125] BatchTime = 0.573 (s) DataTime = 0.001 (s) Losses = ['8.7688'] lr = 0.000101
+2026-02-26 19:49:52,310 - pretrain_custom - INFO - [Epoch 2/300][Batch 121/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['9.1627'] lr = 0.000101
+2026-02-26 19:49:55,626 - pretrain_custom - INFO - [Training] EPOCH: 2 EpochTime = 112.468 (s) Losses = ['10.1736'] lr = 0.000201
+2026-02-26 19:49:55,950 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:50:37,364 - pretrain_custom - INFO - [Epoch 3/300][Batch 1/125] BatchTime = 41.413 (s) DataTime = 40.607 (s) Losses = ['9.1871'] lr = 0.000201
+2026-02-26 19:50:48,470 - pretrain_custom - INFO - [Epoch 3/300][Batch 21/125] BatchTime = 0.558 (s) DataTime = 0.001 (s) Losses = ['9.2298'] lr = 0.000201
+2026-02-26 19:50:59,683 - pretrain_custom - INFO - [Epoch 3/300][Batch 41/125] BatchTime = 0.564 (s) DataTime = 0.000 (s) Losses = ['9.0525'] lr = 0.000201
+2026-02-26 19:51:10,993 - pretrain_custom - INFO - [Epoch 3/300][Batch 61/125] BatchTime = 0.559 (s) DataTime = 0.002 (s) Losses = ['9.5423'] lr = 0.000201
+2026-02-26 19:51:22,304 - pretrain_custom - INFO - [Epoch 3/300][Batch 81/125] BatchTime = 0.564 (s) DataTime = 0.000 (s) Losses = ['8.9341'] lr = 0.000201
+2026-02-26 19:51:33,654 - pretrain_custom - INFO - [Epoch 3/300][Batch 101/125] BatchTime = 0.570 (s) DataTime = 0.002 (s) Losses = ['9.1383'] lr = 0.000201
+2026-02-26 19:51:44,994 - pretrain_custom - INFO - [Epoch 3/300][Batch 121/125] BatchTime = 0.565 (s) DataTime = 0.001 (s) Losses = ['9.0947'] lr = 0.000201
+2026-02-26 19:51:48,455 - pretrain_custom - INFO - [Training] EPOCH: 3 EpochTime = 112.503 (s) Losses = ['9.1828'] lr = 0.000301
+2026-02-26 19:51:48,858 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:52:27,723 - pretrain_custom - INFO - [Epoch 4/300][Batch 1/125] BatchTime = 38.865 (s) DataTime = 38.057 (s) Losses = ['8.9459'] lr = 0.000301
+2026-02-26 19:52:38,903 - pretrain_custom - INFO - [Epoch 4/300][Batch 21/125] BatchTime = 0.556 (s) DataTime = 0.001 (s) Losses = ['9.4429'] lr = 0.000301
+2026-02-26 19:52:50,115 - pretrain_custom - INFO - [Epoch 4/300][Batch 41/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['9.4622'] lr = 0.000301
+2026-02-26 19:53:01,416 - pretrain_custom - INFO - [Epoch 4/300][Batch 61/125] BatchTime = 0.572 (s) DataTime = 0.000 (s) Losses = ['9.8120'] lr = 0.000301
+2026-02-26 19:53:12,729 - pretrain_custom - INFO - [Epoch 4/300][Batch 81/125] BatchTime = 0.569 (s) DataTime = 0.001 (s) Losses = ['9.2554'] lr = 0.000301
+2026-02-26 19:53:24,034 - pretrain_custom - INFO - [Epoch 4/300][Batch 101/125] BatchTime = 0.567 (s) DataTime = 0.002 (s) Losses = ['9.7380'] lr = 0.000301
+2026-02-26 19:53:35,320 - pretrain_custom - INFO - [Epoch 4/300][Batch 121/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['8.9843'] lr = 0.000301
+2026-02-26 19:53:38,527 - pretrain_custom - INFO - [Training] EPOCH: 4 EpochTime = 109.668 (s) Losses = ['9.3383'] lr = 0.000401
+2026-02-26 19:53:38,859 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:54:17,303 - pretrain_custom - INFO - [Epoch 5/300][Batch 1/125] BatchTime = 38.444 (s) DataTime = 37.705 (s) Losses = ['9.1321'] lr = 0.000401
+2026-02-26 19:54:28,444 - pretrain_custom - INFO - [Epoch 5/300][Batch 21/125] BatchTime = 0.559 (s) DataTime = 0.002 (s) Losses = ['9.2233'] lr = 0.000401
+2026-02-26 19:54:39,677 - pretrain_custom - INFO - [Epoch 5/300][Batch 41/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['9.1026'] lr = 0.000401
+2026-02-26 19:54:50,948 - pretrain_custom - INFO - [Epoch 5/300][Batch 61/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['9.1115'] lr = 0.000401
+2026-02-26 19:55:02,296 - pretrain_custom - INFO - [Epoch 5/300][Batch 81/125] BatchTime = 0.568 (s) DataTime = 0.000 (s) Losses = ['9.8197'] lr = 0.000401
+2026-02-26 19:55:13,704 - pretrain_custom - INFO - [Epoch 5/300][Batch 101/125] BatchTime = 0.576 (s) DataTime = 0.001 (s) Losses = ['8.6381'] lr = 0.000401
+2026-02-26 19:55:25,094 - pretrain_custom - INFO - [Epoch 5/300][Batch 121/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['9.3821'] lr = 0.000401
+2026-02-26 19:55:28,472 - pretrain_custom - INFO - [Training] EPOCH: 5 EpochTime = 109.613 (s) Losses = ['9.2724'] lr = 0.000501
+2026-02-26 19:55:28,867 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:56:11,053 - pretrain_custom - INFO - [Epoch 6/300][Batch 1/125] BatchTime = 42.186 (s) DataTime = 41.354 (s) Losses = ['9.2453'] lr = 0.000501
+2026-02-26 19:56:22,277 - pretrain_custom - INFO - [Epoch 6/300][Batch 21/125] BatchTime = 0.574 (s) DataTime = 0.000 (s) Losses = ['9.3600'] lr = 0.000501
+2026-02-26 19:56:33,760 - pretrain_custom - INFO - [Epoch 6/300][Batch 41/125] BatchTime = 0.567 (s) DataTime = 0.001 (s) Losses = ['9.2013'] lr = 0.000501
+2026-02-26 19:56:45,291 - pretrain_custom - INFO - [Epoch 6/300][Batch 61/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['9.0439'] lr = 0.000501
+2026-02-26 19:56:56,768 - pretrain_custom - INFO - [Epoch 6/300][Batch 81/125] BatchTime = 0.595 (s) DataTime = 0.001 (s) Losses = ['8.1955'] lr = 0.000501
+2026-02-26 19:57:08,115 - pretrain_custom - INFO - [Epoch 6/300][Batch 101/125] BatchTime = 0.569 (s) DataTime = 0.000 (s) Losses = ['9.8843'] lr = 0.000501
+2026-02-26 19:57:19,717 - pretrain_custom - INFO - [Epoch 6/300][Batch 121/125] BatchTime = 0.568 (s) DataTime = 0.000 (s) Losses = ['8.2894'] lr = 0.000501
+2026-02-26 19:57:23,155 - pretrain_custom - INFO - [Training] EPOCH: 6 EpochTime = 114.288 (s) Losses = ['9.0708'] lr = 0.000600
+2026-02-26 19:57:23,506 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:58:06,025 - pretrain_custom - INFO - [Epoch 7/300][Batch 1/125] BatchTime = 42.518 (s) DataTime = 41.637 (s) Losses = ['8.9676'] lr = 0.000600
+2026-02-26 19:58:17,202 - pretrain_custom - INFO - [Epoch 7/300][Batch 21/125] BatchTime = 0.557 (s) DataTime = 0.002 (s) Losses = ['8.5396'] lr = 0.000600
+2026-02-26 19:58:28,410 - pretrain_custom - INFO - [Epoch 7/300][Batch 41/125] BatchTime = 0.562 (s) DataTime = 0.000 (s) Losses = ['9.5946'] lr = 0.000600
+2026-02-26 19:58:39,706 - pretrain_custom - INFO - [Epoch 7/300][Batch 61/125] BatchTime = 0.569 (s) DataTime = 0.002 (s) Losses = ['8.7736'] lr = 0.000600
+2026-02-26 19:58:51,064 - pretrain_custom - INFO - [Epoch 7/300][Batch 81/125] BatchTime = 0.559 (s) DataTime = 0.000 (s) Losses = ['9.3496'] lr = 0.000600
+2026-02-26 19:59:02,424 - pretrain_custom - INFO - [Epoch 7/300][Batch 101/125] BatchTime = 0.567 (s) DataTime = 0.002 (s) Losses = ['9.2242'] lr = 0.000600
+2026-02-26 19:59:13,843 - pretrain_custom - INFO - [Epoch 7/300][Batch 121/125] BatchTime = 0.579 (s) DataTime = 0.001 (s) Losses = ['8.8675'] lr = 0.000600
+2026-02-26 19:59:17,250 - pretrain_custom - INFO - [Training] EPOCH: 7 EpochTime = 113.742 (s) Losses = ['8.9591'] lr = 0.000700
+2026-02-26 19:59:17,596 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 19:59:59,374 - pretrain_custom - INFO - [Epoch 8/300][Batch 1/125] BatchTime = 41.777 (s) DataTime = 40.947 (s) Losses = ['8.1203'] lr = 0.000700
+2026-02-26 20:00:10,502 - pretrain_custom - INFO - [Epoch 8/300][Batch 21/125] BatchTime = 0.559 (s) DataTime = 0.002 (s) Losses = ['8.7467'] lr = 0.000700
+2026-02-26 20:00:21,706 - pretrain_custom - INFO - [Epoch 8/300][Batch 41/125] BatchTime = 0.562 (s) DataTime = 0.001 (s) Losses = ['8.5490'] lr = 0.000700
+2026-02-26 20:00:32,949 - pretrain_custom - INFO - [Epoch 8/300][Batch 61/125] BatchTime = 0.564 (s) DataTime = 0.000 (s) Losses = ['8.6013'] lr = 0.000700
+2026-02-26 20:00:44,356 - pretrain_custom - INFO - [Epoch 8/300][Batch 81/125] BatchTime = 0.585 (s) DataTime = 0.001 (s) Losses = ['8.5770'] lr = 0.000700
+2026-02-26 20:00:55,805 - pretrain_custom - INFO - [Epoch 8/300][Batch 101/125] BatchTime = 0.565 (s) DataTime = 0.001 (s) Losses = ['8.1453'] lr = 0.000700
+2026-02-26 20:01:07,194 - pretrain_custom - INFO - [Epoch 8/300][Batch 121/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['9.0367'] lr = 0.000700
+2026-02-26 20:01:10,413 - pretrain_custom - INFO - [Training] EPOCH: 8 EpochTime = 112.816 (s) Losses = ['8.8315'] lr = 0.000800
+2026-02-26 20:01:10,741 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:01:52,152 - pretrain_custom - INFO - [Epoch 9/300][Batch 1/125] BatchTime = 41.410 (s) DataTime = 40.649 (s) Losses = ['8.5337'] lr = 0.000800
+2026-02-26 20:02:03,273 - pretrain_custom - INFO - [Epoch 9/300][Batch 21/125] BatchTime = 0.573 (s) DataTime = 0.001 (s) Losses = ['8.3073'] lr = 0.000800
+2026-02-26 20:02:14,461 - pretrain_custom - INFO - [Epoch 9/300][Batch 41/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['8.1729'] lr = 0.000800
+2026-02-26 20:02:25,706 - pretrain_custom - INFO - [Epoch 9/300][Batch 61/125] BatchTime = 0.565 (s) DataTime = 0.001 (s) Losses = ['8.5237'] lr = 0.000800
+2026-02-26 20:02:36,986 - pretrain_custom - INFO - [Epoch 9/300][Batch 81/125] BatchTime = 0.558 (s) DataTime = 0.001 (s) Losses = ['9.0223'] lr = 0.000800
+2026-02-26 20:02:48,313 - pretrain_custom - INFO - [Epoch 9/300][Batch 101/125] BatchTime = 0.565 (s) DataTime = 0.001 (s) Losses = ['8.1834'] lr = 0.000800
+2026-02-26 20:02:59,619 - pretrain_custom - INFO - [Epoch 9/300][Batch 121/125] BatchTime = 0.563 (s) DataTime = 0.001 (s) Losses = ['8.5317'] lr = 0.000800
+2026-02-26 20:03:03,019 - pretrain_custom - INFO - [Training] EPOCH: 9 EpochTime = 112.277 (s) Losses = ['8.5417'] lr = 0.000900
+2026-02-26 20:03:03,401 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:03:45,913 - pretrain_custom - INFO - [Epoch 10/300][Batch 1/125] BatchTime = 42.511 (s) DataTime = 41.740 (s) Losses = ['8.4018'] lr = 0.000900
+2026-02-26 20:03:57,090 - pretrain_custom - INFO - [Epoch 10/300][Batch 21/125] BatchTime = 0.558 (s) DataTime = 0.000 (s) Losses = ['7.7531'] lr = 0.000900
+2026-02-26 20:04:08,336 - pretrain_custom - INFO - [Epoch 10/300][Batch 41/125] BatchTime = 0.569 (s) DataTime = 0.000 (s) Losses = ['8.6840'] lr = 0.000900
+2026-02-26 20:04:19,588 - pretrain_custom - INFO - [Epoch 10/300][Batch 61/125] BatchTime = 0.562 (s) DataTime = 0.002 (s) Losses = ['8.9232'] lr = 0.000900
+2026-02-26 20:04:30,935 - pretrain_custom - INFO - [Epoch 10/300][Batch 81/125] BatchTime = 0.562 (s) DataTime = 0.003 (s) Losses = ['8.3651'] lr = 0.000900
+2026-02-26 20:04:42,242 - pretrain_custom - INFO - [Epoch 10/300][Batch 101/125] BatchTime = 0.568 (s) DataTime = 0.002 (s) Losses = ['8.4823'] lr = 0.000900
+2026-02-26 20:04:53,665 - pretrain_custom - INFO - [Epoch 10/300][Batch 121/125] BatchTime = 0.566 (s) DataTime = 0.001 (s) Losses = ['8.2096'] lr = 0.000900
+2026-02-26 20:04:57,050 - pretrain_custom - INFO - [Training] EPOCH: 10 EpochTime = 113.647 (s) Losses = ['8.3934'] lr = 0.000501
+2026-02-26 20:04:57,413 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:05:39,673 - pretrain_custom - INFO - [Epoch 11/300][Batch 1/125] BatchTime = 42.260 (s) DataTime = 41.424 (s) Losses = ['8.3068'] lr = 0.000501
+2026-02-26 20:05:50,822 - pretrain_custom - INFO - [Epoch 11/300][Batch 21/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['7.5449'] lr = 0.000501
+2026-02-26 20:06:01,998 - pretrain_custom - INFO - [Epoch 11/300][Batch 41/125] BatchTime = 0.563 (s) DataTime = 0.000 (s) Losses = ['7.7788'] lr = 0.000501
+2026-02-26 20:06:13,306 - pretrain_custom - INFO - [Epoch 11/300][Batch 61/125] BatchTime = 0.550 (s) DataTime = 0.000 (s) Losses = ['7.3336'] lr = 0.000501
+2026-02-26 20:06:24,595 - pretrain_custom - INFO - [Epoch 11/300][Batch 81/125] BatchTime = 0.562 (s) DataTime = 0.000 (s) Losses = ['7.6677'] lr = 0.000501
+2026-02-26 20:06:35,986 - pretrain_custom - INFO - [Epoch 11/300][Batch 101/125] BatchTime = 0.553 (s) DataTime = 0.001 (s) Losses = ['7.6550'] lr = 0.000501
+2026-02-26 20:06:47,348 - pretrain_custom - INFO - [Epoch 11/300][Batch 121/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['8.2596'] lr = 0.000501
+2026-02-26 20:06:50,770 - pretrain_custom - INFO - [Training] EPOCH: 11 EpochTime = 113.357 (s) Losses = ['7.7806'] lr = 0.000422
+2026-02-26 20:06:51,339 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:07:35,852 - pretrain_custom - INFO - [Epoch 12/300][Batch 1/125] BatchTime = 44.513 (s) DataTime = 43.666 (s) Losses = ['7.5892'] lr = 0.000422
+2026-02-26 20:07:46,957 - pretrain_custom - INFO - [Epoch 12/300][Batch 21/125] BatchTime = 0.563 (s) DataTime = 0.000 (s) Losses = ['7.7374'] lr = 0.000422
+2026-02-26 20:07:58,146 - pretrain_custom - INFO - [Epoch 12/300][Batch 41/125] BatchTime = 0.571 (s) DataTime = 0.000 (s) Losses = ['7.3128'] lr = 0.000422
+2026-02-26 20:08:09,386 - pretrain_custom - INFO - [Epoch 12/300][Batch 61/125] BatchTime = 0.558 (s) DataTime = 0.000 (s) Losses = ['7.7373'] lr = 0.000422
+2026-02-26 20:08:20,648 - pretrain_custom - INFO - [Epoch 12/300][Batch 81/125] BatchTime = 0.561 (s) DataTime = 0.000 (s) Losses = ['7.5565'] lr = 0.000422
+2026-02-26 20:08:31,962 - pretrain_custom - INFO - [Epoch 12/300][Batch 101/125] BatchTime = 0.572 (s) DataTime = 0.000 (s) Losses = ['7.6337'] lr = 0.000422
+2026-02-26 20:08:43,305 - pretrain_custom - INFO - [Epoch 12/300][Batch 121/125] BatchTime = 0.566 (s) DataTime = 0.000 (s) Losses = ['8.2083'] lr = 0.000422
+2026-02-26 20:08:46,695 - pretrain_custom - INFO - [Training] EPOCH: 12 EpochTime = 115.356 (s) Losses = ['7.6198'] lr = 0.000346
+2026-02-26 20:08:47,097 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:09:38,537 - pretrain_custom - INFO - [Epoch 13/300][Batch 1/125] BatchTime = 51.441 (s) DataTime = 50.867 (s) Losses = ['7.4482'] lr = 0.000346
+2026-02-26 20:09:49,933 - pretrain_custom - INFO - [Epoch 13/300][Batch 21/125] BatchTime = 0.548 (s) DataTime = 0.004 (s) Losses = ['7.6058'] lr = 0.000346
+2026-02-26 20:10:01,249 - pretrain_custom - INFO - [Epoch 13/300][Batch 41/125] BatchTime = 0.562 (s) DataTime = 0.000 (s) Losses = ['7.3834'] lr = 0.000346
+2026-02-26 20:10:12,583 - pretrain_custom - INFO - [Epoch 13/300][Batch 61/125] BatchTime = 0.566 (s) DataTime = 0.001 (s) Losses = ['7.3151'] lr = 0.000346
+2026-02-26 20:10:23,871 - pretrain_custom - INFO - [Epoch 13/300][Batch 81/125] BatchTime = 0.572 (s) DataTime = 0.000 (s) Losses = ['7.0417'] lr = 0.000346
+2026-02-26 20:10:35,195 - pretrain_custom - INFO - [Epoch 13/300][Batch 101/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['7.2190'] lr = 0.000346
+2026-02-26 20:10:46,541 - pretrain_custom - INFO - [Epoch 13/300][Batch 121/125] BatchTime = 0.574 (s) DataTime = 0.000 (s) Losses = ['7.6642'] lr = 0.000346
+2026-02-26 20:10:49,976 - pretrain_custom - INFO - [Training] EPOCH: 13 EpochTime = 122.880 (s) Losses = ['7.3906'] lr = 0.000274
+2026-02-26 20:10:50,386 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:11:38,969 - pretrain_custom - INFO - [Epoch 14/300][Batch 1/125] BatchTime = 48.583 (s) DataTime = 47.836 (s) Losses = ['7.2081'] lr = 0.000274
+2026-02-26 20:11:50,111 - pretrain_custom - INFO - [Epoch 14/300][Batch 21/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['7.8670'] lr = 0.000274
+2026-02-26 20:12:01,313 - pretrain_custom - INFO - [Epoch 14/300][Batch 41/125] BatchTime = 0.554 (s) DataTime = 0.002 (s) Losses = ['7.4017'] lr = 0.000274
+2026-02-26 20:12:12,677 - pretrain_custom - INFO - [Epoch 14/300][Batch 61/125] BatchTime = 0.559 (s) DataTime = 0.000 (s) Losses = ['7.5878'] lr = 0.000274
+2026-02-26 20:12:23,991 - pretrain_custom - INFO - [Epoch 14/300][Batch 81/125] BatchTime = 0.574 (s) DataTime = 0.000 (s) Losses = ['7.1501'] lr = 0.000274
+2026-02-26 20:12:35,319 - pretrain_custom - INFO - [Epoch 14/300][Batch 101/125] BatchTime = 0.566 (s) DataTime = 0.001 (s) Losses = ['7.0091'] lr = 0.000274
+2026-02-26 20:12:46,685 - pretrain_custom - INFO - [Epoch 14/300][Batch 121/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['7.1663'] lr = 0.000274
+2026-02-26 20:12:50,120 - pretrain_custom - INFO - [Training] EPOCH: 14 EpochTime = 119.733 (s) Losses = ['7.3205'] lr = 0.000207
+2026-02-26 20:12:50,523 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:13:33,715 - pretrain_custom - INFO - [Epoch 15/300][Batch 1/125] BatchTime = 43.193 (s) DataTime = 42.359 (s) Losses = ['7.1999'] lr = 0.000207
+2026-02-26 20:13:44,890 - pretrain_custom - INFO - [Epoch 15/300][Batch 21/125] BatchTime = 0.558 (s) DataTime = 0.001 (s) Losses = ['7.4503'] lr = 0.000207
+2026-02-26 20:13:56,185 - pretrain_custom - INFO - [Epoch 15/300][Batch 41/125] BatchTime = 0.569 (s) DataTime = 0.000 (s) Losses = ['7.3267'] lr = 0.000207
+2026-02-26 20:14:07,652 - pretrain_custom - INFO - [Epoch 15/300][Batch 61/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['7.4563'] lr = 0.000207
+2026-02-26 20:14:19,125 - pretrain_custom - INFO - [Epoch 15/300][Batch 81/125] BatchTime = 0.607 (s) DataTime = 0.000 (s) Losses = ['8.0106'] lr = 0.000207
+2026-02-26 20:14:30,710 - pretrain_custom - INFO - [Epoch 15/300][Batch 101/125] BatchTime = 0.569 (s) DataTime = 0.001 (s) Losses = ['6.9994'] lr = 0.000207
+2026-02-26 20:14:42,322 - pretrain_custom - INFO - [Epoch 15/300][Batch 121/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['7.0129'] lr = 0.000207
+2026-02-26 20:14:45,761 - pretrain_custom - INFO - [Training] EPOCH: 15 EpochTime = 115.238 (s) Losses = ['7.1897'] lr = 0.000147
+2026-02-26 20:14:46,136 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:15:28,488 - pretrain_custom - INFO - [Epoch 16/300][Batch 1/125] BatchTime = 42.352 (s) DataTime = 41.584 (s) Losses = ['6.9542'] lr = 0.000147
+2026-02-26 20:15:39,736 - pretrain_custom - INFO - [Epoch 16/300][Batch 21/125] BatchTime = 0.557 (s) DataTime = 0.000 (s) Losses = ['6.9668'] lr = 0.000147
+2026-02-26 20:15:51,050 - pretrain_custom - INFO - [Epoch 16/300][Batch 41/125] BatchTime = 0.566 (s) DataTime = 0.000 (s) Losses = ['7.0110'] lr = 0.000147
+2026-02-26 20:16:02,431 - pretrain_custom - INFO - [Epoch 16/300][Batch 61/125] BatchTime = 0.563 (s) DataTime = 0.002 (s) Losses = ['7.0847'] lr = 0.000147
+2026-02-26 20:16:13,806 - pretrain_custom - INFO - [Epoch 16/300][Batch 81/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['7.1343'] lr = 0.000147
+2026-02-26 20:16:25,232 - pretrain_custom - INFO - [Epoch 16/300][Batch 101/125] BatchTime = 0.571 (s) DataTime = 0.000 (s) Losses = ['7.6189'] lr = 0.000147
+2026-02-26 20:16:36,585 - pretrain_custom - INFO - [Epoch 16/300][Batch 121/125] BatchTime = 0.580 (s) DataTime = 0.011 (s) Losses = ['6.8644'] lr = 0.000147
+2026-02-26 20:16:40,069 - pretrain_custom - INFO - [Training] EPOCH: 16 EpochTime = 113.933 (s) Losses = ['7.1274'] lr = 0.000096
+2026-02-26 20:16:40,454 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:17:24,071 - pretrain_custom - INFO - [Epoch 17/300][Batch 1/125] BatchTime = 43.616 (s) DataTime = 42.877 (s) Losses = ['6.9886'] lr = 0.000096
+2026-02-26 20:17:35,434 - pretrain_custom - INFO - [Epoch 17/300][Batch 21/125] BatchTime = 0.562 (s) DataTime = 0.000 (s) Losses = ['6.6616'] lr = 0.000096
+2026-02-26 20:17:46,825 - pretrain_custom - INFO - [Epoch 17/300][Batch 41/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['6.8636'] lr = 0.000096
+2026-02-26 20:17:58,360 - pretrain_custom - INFO - [Epoch 17/300][Batch 61/125] BatchTime = 0.591 (s) DataTime = 0.000 (s) Losses = ['7.4126'] lr = 0.000096
+2026-02-26 20:18:09,720 - pretrain_custom - INFO - [Epoch 17/300][Batch 81/125] BatchTime = 0.566 (s) DataTime = 0.001 (s) Losses = ['6.8359'] lr = 0.000096
+2026-02-26 20:18:21,110 - pretrain_custom - INFO - [Epoch 17/300][Batch 101/125] BatchTime = 0.566 (s) DataTime = 0.000 (s) Losses = ['7.0130'] lr = 0.000096
+2026-02-26 20:18:32,510 - pretrain_custom - INFO - [Epoch 17/300][Batch 121/125] BatchTime = 0.596 (s) DataTime = 0.001 (s) Losses = ['6.9905'] lr = 0.000096
+2026-02-26 20:18:35,922 - pretrain_custom - INFO - [Training] EPOCH: 17 EpochTime = 115.468 (s) Losses = ['7.0718'] lr = 0.000055
+2026-02-26 20:18:36,299 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:19:19,833 - pretrain_custom - INFO - [Epoch 18/300][Batch 1/125] BatchTime = 43.530 (s) DataTime = 42.808 (s) Losses = ['7.0043'] lr = 0.000055
+2026-02-26 20:19:31,040 - pretrain_custom - INFO - [Epoch 18/300][Batch 21/125] BatchTime = 0.557 (s) DataTime = 0.001 (s) Losses = ['6.6993'] lr = 0.000055
+2026-02-26 20:19:42,285 - pretrain_custom - INFO - [Epoch 18/300][Batch 41/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['7.3144'] lr = 0.000055
+2026-02-26 20:19:53,528 - pretrain_custom - INFO - [Epoch 18/300][Batch 61/125] BatchTime = 0.562 (s) DataTime = 0.001 (s) Losses = ['6.9357'] lr = 0.000055
+2026-02-26 20:20:04,811 - pretrain_custom - INFO - [Epoch 18/300][Batch 81/125] BatchTime = 0.560 (s) DataTime = 0.000 (s) Losses = ['6.7690'] lr = 0.000055
+2026-02-26 20:20:16,111 - pretrain_custom - INFO - [Epoch 18/300][Batch 101/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['7.0263'] lr = 0.000055
+2026-02-26 20:20:27,523 - pretrain_custom - INFO - [Epoch 18/300][Batch 121/125] BatchTime = 0.588 (s) DataTime = 0.000 (s) Losses = ['7.5389'] lr = 0.000055
+2026-02-26 20:20:30,934 - pretrain_custom - INFO - [Training] EPOCH: 18 EpochTime = 114.631 (s) Losses = ['7.0899'] lr = 0.000025
+2026-02-26 20:20:31,285 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:21:14,013 - pretrain_custom - INFO - [Epoch 19/300][Batch 1/125] BatchTime = 42.728 (s) DataTime = 42.018 (s) Losses = ['6.8072'] lr = 0.000025
+2026-02-26 20:21:25,381 - pretrain_custom - INFO - [Epoch 19/300][Batch 21/125] BatchTime = 0.562 (s) DataTime = 0.002 (s) Losses = ['7.2585'] lr = 0.000025
+2026-02-26 20:21:36,689 - pretrain_custom - INFO - [Epoch 19/300][Batch 41/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['7.0107'] lr = 0.000025
+2026-02-26 20:21:48,046 - pretrain_custom - INFO - [Epoch 19/300][Batch 61/125] BatchTime = 0.554 (s) DataTime = 0.001 (s) Losses = ['6.6140'] lr = 0.000025
+2026-02-26 20:21:59,556 - pretrain_custom - INFO - [Epoch 19/300][Batch 81/125] BatchTime = 0.577 (s) DataTime = 0.000 (s) Losses = ['6.6505'] lr = 0.000025
+2026-02-26 20:22:11,001 - pretrain_custom - INFO - [Epoch 19/300][Batch 101/125] BatchTime = 0.575 (s) DataTime = 0.003 (s) Losses = ['6.8502'] lr = 0.000025
+2026-02-26 20:22:22,687 - pretrain_custom - INFO - [Epoch 19/300][Batch 121/125] BatchTime = 0.576 (s) DataTime = 0.001 (s) Losses = ['6.7977'] lr = 0.000025
+2026-02-26 20:22:26,237 - pretrain_custom - INFO - [Training] EPOCH: 19 EpochTime = 114.952 (s) Losses = ['6.9894'] lr = 0.000007
+2026-02-26 20:22:26,615 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:23:09,968 - pretrain_custom - INFO - [Epoch 20/300][Batch 1/125] BatchTime = 43.353 (s) DataTime = 42.474 (s) Losses = ['7.3120'] lr = 0.000007
+2026-02-26 20:23:21,199 - pretrain_custom - INFO - [Epoch 20/300][Batch 21/125] BatchTime = 0.583 (s) DataTime = 0.000 (s) Losses = ['7.3250'] lr = 0.000007
+2026-02-26 20:23:32,647 - pretrain_custom - INFO - [Epoch 20/300][Batch 41/125] BatchTime = 0.586 (s) DataTime = 0.000 (s) Losses = ['6.9675'] lr = 0.000007
+2026-02-26 20:23:43,897 - pretrain_custom - INFO - [Epoch 20/300][Batch 61/125] BatchTime = 0.572 (s) DataTime = 0.000 (s) Losses = ['6.8044'] lr = 0.000007
+2026-02-26 20:23:55,347 - pretrain_custom - INFO - [Epoch 20/300][Batch 81/125] BatchTime = 0.601 (s) DataTime = 0.000 (s) Losses = ['7.2785'] lr = 0.000007
+2026-02-26 20:24:06,908 - pretrain_custom - INFO - [Epoch 20/300][Batch 101/125] BatchTime = 0.593 (s) DataTime = 0.004 (s) Losses = ['7.2092'] lr = 0.000007
+2026-02-26 20:24:18,727 - pretrain_custom - INFO - [Epoch 20/300][Batch 121/125] BatchTime = 0.581 (s) DataTime = 0.000 (s) Losses = ['6.9380'] lr = 0.000007
+2026-02-26 20:24:22,153 - pretrain_custom - INFO - [Training] EPOCH: 20 EpochTime = 115.538 (s) Losses = ['7.0301'] lr = 0.000001
+2026-02-26 20:24:22,537 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:25:05,718 - pretrain_custom - INFO - [Epoch 21/300][Batch 1/125] BatchTime = 43.181 (s) DataTime = 42.471 (s) Losses = ['6.8824'] lr = 0.000001
+2026-02-26 20:25:16,913 - pretrain_custom - INFO - [Epoch 21/300][Batch 21/125] BatchTime = 0.570 (s) DataTime = 0.000 (s) Losses = ['6.8798'] lr = 0.000001
+2026-02-26 20:25:28,159 - pretrain_custom - INFO - [Epoch 21/300][Batch 41/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['7.1078'] lr = 0.000001
+2026-02-26 20:25:39,491 - pretrain_custom - INFO - [Epoch 21/300][Batch 61/125] BatchTime = 0.568 (s) DataTime = 0.001 (s) Losses = ['7.0490'] lr = 0.000001
+2026-02-26 20:25:50,853 - pretrain_custom - INFO - [Epoch 21/300][Batch 81/125] BatchTime = 0.569 (s) DataTime = 0.007 (s) Losses = ['7.3990'] lr = 0.000001
+2026-02-26 20:26:02,403 - pretrain_custom - INFO - [Epoch 21/300][Batch 101/125] BatchTime = 0.582 (s) DataTime = 0.001 (s) Losses = ['6.9905'] lr = 0.000001
+2026-02-26 20:26:13,755 - pretrain_custom - INFO - [Epoch 21/300][Batch 121/125] BatchTime = 0.564 (s) DataTime = 0.000 (s) Losses = ['7.1543'] lr = 0.000001
+2026-02-26 20:26:17,120 - pretrain_custom - INFO - [Training] EPOCH: 21 EpochTime = 114.583 (s) Losses = ['7.0087'] lr = 0.000001
+2026-02-26 20:26:17,531 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:27:00,274 - pretrain_custom - INFO - [Epoch 22/300][Batch 1/125] BatchTime = 42.742 (s) DataTime = 41.973 (s) Losses = ['6.9951'] lr = 0.000001
+2026-02-26 20:27:11,413 - pretrain_custom - INFO - [Epoch 22/300][Batch 21/125] BatchTime = 0.567 (s) DataTime = 0.008 (s) Losses = ['6.6794'] lr = 0.000001
+2026-02-26 20:27:22,668 - pretrain_custom - INFO - [Epoch 22/300][Batch 41/125] BatchTime = 0.569 (s) DataTime = 0.001 (s) Losses = ['7.2997'] lr = 0.000001
+2026-02-26 20:27:34,045 - pretrain_custom - INFO - [Epoch 22/300][Batch 61/125] BatchTime = 0.581 (s) DataTime = 0.001 (s) Losses = ['6.9811'] lr = 0.000001
+2026-02-26 20:27:45,644 - pretrain_custom - INFO - [Epoch 22/300][Batch 81/125] BatchTime = 0.575 (s) DataTime = 0.000 (s) Losses = ['7.1693'] lr = 0.000001
+2026-02-26 20:27:57,199 - pretrain_custom - INFO - [Epoch 22/300][Batch 101/125] BatchTime = 0.586 (s) DataTime = 0.002 (s) Losses = ['6.8776'] lr = 0.000001
+2026-02-26 20:28:08,611 - pretrain_custom - INFO - [Epoch 22/300][Batch 121/125] BatchTime = 0.582 (s) DataTime = 0.000 (s) Losses = ['6.6997'] lr = 0.000001
+2026-02-26 20:28:12,039 - pretrain_custom - INFO - [Training] EPOCH: 22 EpochTime = 114.507 (s) Losses = ['6.9872'] lr = 0.000001
+2026-02-26 20:28:12,444 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:28:51,831 - pretrain_custom - INFO - [Epoch 23/300][Batch 1/125] BatchTime = 39.387 (s) DataTime = 38.595 (s) Losses = ['6.7600'] lr = 0.000001
+2026-02-26 20:29:03,002 - pretrain_custom - INFO - [Epoch 23/300][Batch 21/125] BatchTime = 0.562 (s) DataTime = 0.000 (s) Losses = ['7.4568'] lr = 0.000001
+2026-02-26 20:29:14,241 - pretrain_custom - INFO - [Epoch 23/300][Batch 41/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['6.6994'] lr = 0.000001
+2026-02-26 20:29:25,556 - pretrain_custom - INFO - [Epoch 23/300][Batch 61/125] BatchTime = 0.565 (s) DataTime = 0.002 (s) Losses = ['6.8445'] lr = 0.000001
+2026-02-26 20:29:36,837 - pretrain_custom - INFO - [Epoch 23/300][Batch 81/125] BatchTime = 0.568 (s) DataTime = 0.001 (s) Losses = ['6.6974'] lr = 0.000001
+2026-02-26 20:29:48,187 - pretrain_custom - INFO - [Epoch 23/300][Batch 101/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['6.7491'] lr = 0.000001
+2026-02-26 20:29:59,509 - pretrain_custom - INFO - [Epoch 23/300][Batch 121/125] BatchTime = 0.563 (s) DataTime = 0.000 (s) Losses = ['7.0985'] lr = 0.000001
+2026-02-26 20:30:02,903 - pretrain_custom - INFO - [Training] EPOCH: 23 EpochTime = 110.457 (s) Losses = ['7.0222'] lr = 0.000001
+2026-02-26 20:30:03,911 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:30:47,189 - pretrain_custom - INFO - [Epoch 24/300][Batch 1/125] BatchTime = 43.276 (s) DataTime = 42.461 (s) Losses = ['7.2695'] lr = 0.000001
+2026-02-26 20:30:58,345 - pretrain_custom - INFO - [Epoch 24/300][Batch 21/125] BatchTime = 0.557 (s) DataTime = 0.000 (s) Losses = ['7.4475'] lr = 0.000001
+2026-02-26 20:31:09,800 - pretrain_custom - INFO - [Epoch 24/300][Batch 41/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['6.6563'] lr = 0.000001
+2026-02-26 20:31:21,295 - pretrain_custom - INFO - [Epoch 24/300][Batch 61/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['6.8658'] lr = 0.000001
+2026-02-26 20:31:32,792 - pretrain_custom - INFO - [Epoch 24/300][Batch 81/125] BatchTime = 0.645 (s) DataTime = 0.001 (s) Losses = ['6.8361'] lr = 0.000001
+2026-02-26 20:31:44,433 - pretrain_custom - INFO - [Epoch 24/300][Batch 101/125] BatchTime = 0.569 (s) DataTime = 0.000 (s) Losses = ['7.1612'] lr = 0.000001
+2026-02-26 20:31:55,750 - pretrain_custom - INFO - [Epoch 24/300][Batch 121/125] BatchTime = 0.564 (s) DataTime = 0.000 (s) Losses = ['7.6751'] lr = 0.000001
+2026-02-26 20:31:59,215 - pretrain_custom - INFO - [Training] EPOCH: 24 EpochTime = 115.302 (s) Losses = ['7.0105'] lr = 0.000001
+2026-02-26 20:32:00,047 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:32:43,561 - pretrain_custom - INFO - [Epoch 25/300][Batch 1/125] BatchTime = 43.513 (s) DataTime = 42.654 (s) Losses = ['7.1448'] lr = 0.000001
+2026-02-26 20:32:54,684 - pretrain_custom - INFO - [Epoch 25/300][Batch 21/125] BatchTime = 0.558 (s) DataTime = 0.002 (s) Losses = ['7.6394'] lr = 0.000001
+2026-02-26 20:33:05,875 - pretrain_custom - INFO - [Epoch 25/300][Batch 41/125] BatchTime = 0.571 (s) DataTime = 0.008 (s) Losses = ['6.8312'] lr = 0.000001
+2026-02-26 20:33:17,129 - pretrain_custom - INFO - [Epoch 25/300][Batch 61/125] BatchTime = 0.563 (s) DataTime = 0.000 (s) Losses = ['6.6665'] lr = 0.000001
+2026-02-26 20:33:28,432 - pretrain_custom - INFO - [Epoch 25/300][Batch 81/125] BatchTime = 0.561 (s) DataTime = 0.002 (s) Losses = ['7.2958'] lr = 0.000001
+2026-02-26 20:33:39,752 - pretrain_custom - INFO - [Epoch 25/300][Batch 101/125] BatchTime = 0.562 (s) DataTime = 0.001 (s) Losses = ['6.3835'] lr = 0.000001
+2026-02-26 20:33:51,111 - pretrain_custom - INFO - [Epoch 25/300][Batch 121/125] BatchTime = 0.575 (s) DataTime = 0.000 (s) Losses = ['6.9125'] lr = 0.000001
+2026-02-26 20:33:54,567 - pretrain_custom - INFO - [Training] EPOCH: 25 EpochTime = 114.519 (s) Losses = ['6.9740'] lr = 0.000001
+2026-02-26 20:33:54,961 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:34:38,534 - pretrain_custom - INFO - [Epoch 26/300][Batch 1/125] BatchTime = 43.572 (s) DataTime = 42.844 (s) Losses = ['7.0159'] lr = 0.000001
+2026-02-26 20:34:49,865 - pretrain_custom - INFO - [Epoch 26/300][Batch 21/125] BatchTime = 0.554 (s) DataTime = 0.000 (s) Losses = ['7.1977'] lr = 0.000001
+2026-02-26 20:35:01,230 - pretrain_custom - INFO - [Epoch 26/300][Batch 41/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['6.8808'] lr = 0.000001
+2026-02-26 20:35:12,588 - pretrain_custom - INFO - [Epoch 26/300][Batch 61/125] BatchTime = 0.557 (s) DataTime = 0.000 (s) Losses = ['7.0459'] lr = 0.000001
+2026-02-26 20:35:24,059 - pretrain_custom - INFO - [Epoch 26/300][Batch 81/125] BatchTime = 0.578 (s) DataTime = 0.000 (s) Losses = ['7.2746'] lr = 0.000001
+2026-02-26 20:35:35,468 - pretrain_custom - INFO - [Epoch 26/300][Batch 101/125] BatchTime = 0.578 (s) DataTime = 0.000 (s) Losses = ['7.0004'] lr = 0.000001
+2026-02-26 20:35:46,961 - pretrain_custom - INFO - [Epoch 26/300][Batch 121/125] BatchTime = 0.568 (s) DataTime = 0.000 (s) Losses = ['6.5899'] lr = 0.000001
+2026-02-26 20:35:50,401 - pretrain_custom - INFO - [Training] EPOCH: 26 EpochTime = 115.439 (s) Losses = ['6.9844'] lr = 0.000001
+2026-02-26 20:35:50,823 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:36:33,872 - pretrain_custom - INFO - [Epoch 27/300][Batch 1/125] BatchTime = 43.047 (s) DataTime = 42.200 (s) Losses = ['7.2161'] lr = 0.000001
+2026-02-26 20:36:45,035 - pretrain_custom - INFO - [Epoch 27/300][Batch 21/125] BatchTime = 0.556 (s) DataTime = 0.001 (s) Losses = ['7.0491'] lr = 0.000001
+2026-02-26 20:36:56,314 - pretrain_custom - INFO - [Epoch 27/300][Batch 41/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['6.7455'] lr = 0.000001
+2026-02-26 20:37:07,813 - pretrain_custom - INFO - [Epoch 27/300][Batch 61/125] BatchTime = 0.567 (s) DataTime = 0.001 (s) Losses = ['7.1250'] lr = 0.000001
+2026-02-26 20:37:19,314 - pretrain_custom - INFO - [Epoch 27/300][Batch 81/125] BatchTime = 0.568 (s) DataTime = 0.000 (s) Losses = ['7.1115'] lr = 0.000001
+2026-02-26 20:37:30,752 - pretrain_custom - INFO - [Epoch 27/300][Batch 101/125] BatchTime = 0.564 (s) DataTime = 0.001 (s) Losses = ['6.6665'] lr = 0.000001
+2026-02-26 20:37:42,159 - pretrain_custom - INFO - [Epoch 27/300][Batch 121/125] BatchTime = 0.567 (s) DataTime = 0.000 (s) Losses = ['6.6947'] lr = 0.000001
+2026-02-26 20:37:45,561 - pretrain_custom - INFO - [Training] EPOCH: 27 EpochTime = 114.736 (s) Losses = ['7.0027'] lr = 0.000001
+2026-02-26 20:37:45,929 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:38:26,242 - pretrain_custom - INFO - [Epoch 28/300][Batch 1/125] BatchTime = 40.313 (s) DataTime = 39.500 (s) Losses = ['6.8688'] lr = 0.000001
+2026-02-26 20:38:37,311 - pretrain_custom - INFO - [Epoch 28/300][Batch 21/125] BatchTime = 0.554 (s) DataTime = 0.000 (s) Losses = ['6.8724'] lr = 0.000001
+2026-02-26 20:38:48,453 - pretrain_custom - INFO - [Epoch 28/300][Batch 41/125] BatchTime = 0.554 (s) DataTime = 0.000 (s) Losses = ['6.8702'] lr = 0.000001
+2026-02-26 20:38:59,641 - pretrain_custom - INFO - [Epoch 28/300][Batch 61/125] BatchTime = 0.560 (s) DataTime = 0.001 (s) Losses = ['6.8684'] lr = 0.000001
+2026-02-26 20:39:10,856 - pretrain_custom - INFO - [Epoch 28/300][Batch 81/125] BatchTime = 0.561 (s) DataTime = 0.000 (s) Losses = ['6.9070'] lr = 0.000001
+2026-02-26 20:39:22,123 - pretrain_custom - INFO - [Epoch 28/300][Batch 101/125] BatchTime = 0.563 (s) DataTime = 0.001 (s) Losses = ['6.6691'] lr = 0.000001
+2026-02-26 20:39:33,400 - pretrain_custom - INFO - [Epoch 28/300][Batch 121/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['6.7476'] lr = 0.000001
+2026-02-26 20:39:36,634 - pretrain_custom - INFO - [Training] EPOCH: 28 EpochTime = 110.705 (s) Losses = ['6.9783'] lr = 0.000001
+2026-02-26 20:39:36,954 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:40:13,010 - pretrain_custom - INFO - [Epoch 29/300][Batch 1/125] BatchTime = 36.055 (s) DataTime = 35.328 (s) Losses = ['6.4527'] lr = 0.000001
+2026-02-26 20:40:24,158 - pretrain_custom - INFO - [Epoch 29/300][Batch 21/125] BatchTime = 0.568 (s) DataTime = 0.000 (s) Losses = ['6.8292'] lr = 0.000001
+2026-02-26 20:40:35,656 - pretrain_custom - INFO - [Epoch 29/300][Batch 41/125] BatchTime = 0.580 (s) DataTime = 0.000 (s) Losses = ['6.9053'] lr = 0.000001
+2026-02-26 20:40:47,129 - pretrain_custom - INFO - [Epoch 29/300][Batch 61/125] BatchTime = 0.574 (s) DataTime = 0.000 (s) Losses = ['6.7633'] lr = 0.000001
+2026-02-26 20:40:58,484 - pretrain_custom - INFO - [Epoch 29/300][Batch 81/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['6.5307'] lr = 0.000001
+2026-02-26 20:41:09,883 - pretrain_custom - INFO - [Epoch 29/300][Batch 101/125] BatchTime = 0.563 (s) DataTime = 0.000 (s) Losses = ['7.2418'] lr = 0.000001
+2026-02-26 20:41:21,553 - pretrain_custom - INFO - [Epoch 29/300][Batch 121/125] BatchTime = 0.582 (s) DataTime = 0.000 (s) Losses = ['6.8129'] lr = 0.000001
+2026-02-26 20:41:25,008 - pretrain_custom - INFO - [Training] EPOCH: 29 EpochTime = 108.054 (s) Losses = ['6.9458'] lr = 0.000001
+2026-02-26 20:41:25,408 - pretrain_custom - INFO - Save checkpoint at ./experiments\pretrain_custom\dataset_configs\POINT_MAE_and_SATO\ckpt-last.pth
+2026-02-26 20:42:08,386 - pretrain_custom - INFO - [Epoch 30/300][Batch 1/125] BatchTime = 42.977 (s) DataTime = 42.213 (s) Losses = ['7.0897'] lr = 0.000001
+2026-02-26 20:42:19,778 - pretrain_custom - INFO - [Epoch 30/300][Batch 21/125] BatchTime = 0.556 (s) DataTime = 0.001 (s) Losses = ['6.8209'] lr = 0.000001
+2026-02-26 20:42:31,338 - pretrain_custom - INFO - [Epoch 30/300][Batch 41/125] BatchTime = 0.565 (s) DataTime = 0.000 (s) Losses = ['7.2572'] lr = 0.000001
+2026-02-26 20:42:42,694 - pretrain_custom - INFO - [Epoch 30/300][Batch 61/125] BatchTime = 0.575 (s) DataTime = 0.000 (s) Losses = ['7.3884'] lr = 0.000001
+2026-02-26 20:42:54,092 - pretrain_custom - INFO - [Epoch 30/300][Batch 81/125] BatchTime = 0.555 (s) DataTime = 0.000 (s) Losses = ['6.9776'] lr = 0.000001

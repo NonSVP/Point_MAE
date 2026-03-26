@@ -31,7 +31,7 @@ model: {
   NAME: Point_MAE, 
   group_size: 10,     
   num_group: 32,      
-  loss: cdl1,
+  loss: mse,
   transformer_config: {
     mask_ratio: 0.6,
     mask_type: 'rand',

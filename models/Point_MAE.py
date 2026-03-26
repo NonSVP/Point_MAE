@@ -13,6 +13,8 @@ from knn_cuda import KNN
 from extensions.chamfer_dist import ChamferDistanceL1, ChamferDistanceL2
 
 
+from dataset_SATO.Dataset import pos_to_order_inverse_index 
+
 class Encoder(nn.Module):   ## Embedding module
     def __init__(self, encoder_channel):
         super().__init__()
@@ -369,7 +371,11 @@ class Point_MAE(nn.Module):
         self.build_loss_func(self.loss)
 
     def build_loss_func(self, loss_type):
-        if loss_type == "cdl1":
+        if loss_type == "mse":
+            self.loss_func = nn.MSELoss().cuda() # Standard point-wise MSE
+        elif loss_type == "l1":
+            self.loss_func = nn.L1Loss().cuda() # Standard point-wise L1
+        elif loss_type == "cdl1":
             self.loss_func = ChamferDistanceL1().cuda()
         elif loss_type =='cdl2':
             self.loss_func = ChamferDistanceL2().cuda()
@@ -378,14 +384,52 @@ class Point_MAE(nn.Module):
             # self.loss_func = emd().cuda()
 
 
+#    def forward(self, pts, vis = False, **kwargs):
+#        neighborhood, center = self.group_divider(pts)
+
+#        x_vis, mask = self.MAE_encoder(neighborhood, center)
+#        B,_,C = x_vis.shape # B VIS C
+
+#        pos_emd_vis = self.decoder_pos_embed(center[~mask]).reshape(B, -1, C)
+
+#        pos_emd_mask = self.decoder_pos_embed(center[mask]).reshape(B, -1, C)
+
+#        _,N,_ = pos_emd_mask.shape
+#        mask_token = self.mask_token.expand(B, N, -1)
+#        x_full = torch.cat([x_vis, mask_token], dim=1)
+#        pos_full = torch.cat([pos_emd_vis, pos_emd_mask], dim=1)
+
+#        x_rec = self.MAE_decoder(x_full, pos_full, N)
+
+#        B, M, C = x_rec.shape
+#        rebuild_points = self.increase_dim(x_rec.transpose(1, 2)).transpose(1, 2).reshape(B * M, -1, 3)  # B M 1024
+
+#        gt_points = neighborhood[mask].reshape(B*M,-1,3)
+#        loss1 = self.loss_func(rebuild_points, gt_points)
+
+#        if vis: #visualization
+#            vis_points = neighborhood[~mask].reshape(B * (self.num_group - M), -1, 3)
+#            full_vis = vis_points + center[~mask].unsqueeze(1)
+#            full_rebuild = rebuild_points + center[mask].unsqueeze(1)
+#            full = torch.cat([full_vis, full_rebuild], dim=0)
+#            # full_points = torch.cat([rebuild_points,vis_points], dim=0)
+#            full_center = torch.cat([center[mask], center[~mask]], dim=0)
+#            # full = full_points + full_center.unsqueeze(1)
+#            ret2 = full_vis.reshape(-1, 3).unsqueeze(0)
+#            ret1 = full.reshape(-1, 3).unsqueeze(0)
+#            # return ret1, ret2
+#            return ret1, ret2, full_center
+#        else:
+#            return loss1
+
     def forward(self, pts, vis = False, **kwargs):
-        neighborhood, center = self.group_divider(pts)
+        # pts: B N 3
+        neighborhood, center = self.group_divider(pts) # B G M 3
 
         x_vis, mask = self.MAE_encoder(neighborhood, center)
         B,_,C = x_vis.shape # B VIS C
 
         pos_emd_vis = self.decoder_pos_embed(center[~mask]).reshape(B, -1, C)
-
         pos_emd_mask = self.decoder_pos_embed(center[mask]).reshape(B, -1, C)
 
         _,N,_ = pos_emd_mask.shape
@@ -396,25 +440,55 @@ class Point_MAE(nn.Module):
         x_rec = self.MAE_decoder(x_full, pos_full, N)
 
         B, M, C = x_rec.shape
-        rebuild_points = self.increase_dim(x_rec.transpose(1, 2)).transpose(1, 2).reshape(B * M, -1, 3)  # B M 1024
+        # rebuild_points shape: [B * M, group_size, 3]
+        # Generated as a sequence by the increase_dim Conv1d layer
+        rebuild_points = self.increase_dim(x_rec.transpose(1, 2)).transpose(1, 2).reshape(B * M, -1, 3) 
 
+        # gt_points shape: [B * M, group_size, 3]
         gt_points = neighborhood[mask].reshape(B*M,-1,3)
-        loss1 = self.loss_func(rebuild_points, gt_points)
 
-        if vis: #visualization
+        # --- SATO Serialization Step ---
+        # Import the utility from the SATO dataset files
+        from dataset_SATO.Dataset import pos_to_order_inverse_index 
+
+        
+        with torch.no_grad():
+            # Apply serialization logic to the target patches
+            # order shape: [B*M, 4, group_size]
+            order, _ = pos_to_order_inverse_index(gt_points, tensor=True)
+            
+            # Use the primary order (e.g., Z-order at index 0)
+            z_order = order[:, 0, :] # [B*M, group_size]
+            
+            # Reorder GT points into a fixed 1D series
+            # Create a batch index to facilitate advanced indexing across all patches
+            batch_idx = torch.arange(gt_points.size(0), device=gt_points.device).unsqueeze(1)
+            gt_points_serialized = gt_points[batch_idx, z_order]
+
+        # Calculate loss using the serialized GT points
+        # If the points are ordered, loss_func (MSE/L1) compares points 1:1
+        loss1 = self.loss_func(rebuild_points, gt_points_serialized)
+
+
+        if vis: # visualization
             vis_points = neighborhood[~mask].reshape(B * (self.num_group - M), -1, 3)
             full_vis = vis_points + center[~mask].unsqueeze(1)
+            
+            # Tọa độ tuyệt đối của các điểm GT đã được sắp xếp theo SATO
+            full_gt_rebuild = gt_points_serialized + center[mask].unsqueeze(1)
+            
             full_rebuild = rebuild_points + center[mask].unsqueeze(1)
             full = torch.cat([full_vis, full_rebuild], dim=0)
-            # full_points = torch.cat([rebuild_points,vis_points], dim=0)
             full_center = torch.cat([center[mask], center[~mask]], dim=0)
-            # full = full_points + full_center.unsqueeze(1)
+            
             ret2 = full_vis.reshape(-1, 3).unsqueeze(0)
             ret1 = full.reshape(-1, 3).unsqueeze(0)
-            # return ret1, ret2
-            return ret1, ret2, full_center
+            
+            # Trả về thêm: full_gt_rebuild (Ground Truth đã sắp xếp theo SATO)
+            return ret1, ret2, full_center, full_gt_rebuild.reshape(-1, 3).unsqueeze(0)
         else:
             return loss1
+        
 
 # finetune model
 @MODELS.register_module()
